@@ -26,7 +26,7 @@ export function DashboardPage({ data, onToggleStatus, onNavigate }: DashboardPag
               backgroundImage: `url(${logoUrl})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              filter: "blur(6px)",
+              filter: "blur(1px)",
               opacity: 0.05,
               transform: "scale(1.05)",
             }}
