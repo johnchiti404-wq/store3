@@ -20,15 +20,23 @@ export function OrdersPage({ orders }: OrdersPageProps) {
 
   return (
     <div className="flex flex-col h-full">
-      {/* Fixed Header */}
-      <div className="bg-card px-4 pt-5 pb-0 shrink-0">
+      {/* Fixed Header with glassmorphism */}
+      <div 
+        className="px-4 pt-5 pb-0 shrink-0"
+        style={{
+          background: "rgba(255, 255, 255, 0.15)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.25)",
+        }}
+      >
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <button className="text-card-foreground" aria-label="Go back">
+            <button className="text-foreground" aria-label="Go back">
               <ChevronLeft className="w-6 h-6" />
             </button>
           </div>
-          <h1 className="text-2xl font-bold text-card-foreground">Orders</h1>
+          <h1 className="text-2xl font-bold text-foreground">Orders</h1>
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-muted overflow-hidden">
               <img src="/images/food-1.jpg" alt="Profile" className="w-full h-full object-cover" />
@@ -43,14 +51,14 @@ export function OrdersPage({ orders }: OrdersPageProps) {
         </div>
 
         {/* Tabs */}
-        <div className="flex border-b border-border">
+        <div className="flex border-b border-white/20">
           <button
             id="todayOrdersTab"
             onClick={() => setActiveTab("today")}
             className={`flex-1 pb-3 text-sm font-semibold transition-colors duration-200 ${
               activeTab === "today"
                 ? "text-primary border-b-2 border-primary"
-                : "text-muted-foreground"
+                : "text-foreground/60"
             }`}
           >
             {"Today's Orders"}
@@ -61,7 +69,7 @@ export function OrdersPage({ orders }: OrdersPageProps) {
             className={`flex-1 pb-3 text-sm font-semibold transition-colors duration-200 ${
               activeTab === "past"
                 ? "text-primary border-b-2 border-primary"
-                : "text-muted-foreground"
+                : "text-foreground/60"
             }`}
           >
             Past Orders

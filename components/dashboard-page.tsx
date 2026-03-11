@@ -16,9 +16,17 @@ export function DashboardPage({ data, onToggleStatus, onNavigate }: DashboardPag
 
   return (
     <div className="flex flex-col h-full">
-      {/* Fixed Header */}
-      <div className="bg-card px-4 pt-5 pb-4 shrink-0 relative overflow-hidden">
-        {/* Blurred Logo Background - reduced blur for subtle glass effect */}
+      {/* Fixed Header with glassmorphism */}
+      <div 
+        className="px-4 pt-5 pb-4 shrink-0 relative overflow-hidden"
+        style={{
+          background: "rgba(255, 255, 255, 0.15)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.25)",
+        }}
+      >
+        {/* Logo Background - NO blur, fully visible */}
         {logoUrl && (
           <div
             className="absolute inset-0 z-0"
@@ -26,9 +34,7 @@ export function DashboardPage({ data, onToggleStatus, onNavigate }: DashboardPag
               backgroundImage: `url(${logoUrl})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              filter: "blur(6px)",
-              opacity: 0.14,
-              transform: "scale(1.05)",
+              opacity: 0.12,
             }}
           />
         )}
@@ -60,7 +66,16 @@ export function DashboardPage({ data, onToggleStatus, onNavigate }: DashboardPag
               </span>
             </div>
           </div>
-          <div id="revenueTodayCard" className="bg-card border border-border rounded-xl px-4 py-3 text-right shadow-sm">
+          <div 
+            id="revenueTodayCard" 
+            className="rounded-xl px-4 py-3 text-right shadow-sm"
+            style={{
+              background: "rgba(255, 255, 255, 0.15)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              border: "1px solid rgba(255, 255, 255, 0.25)",
+            }}
+          >
             <p className="text-xs text-muted-foreground">Store Revenue Today</p>
             <p className="text-xl font-bold text-primary">ZMW {data.revenueToday.toLocaleString("en-US", { minimumFractionDigits: 2 })}</p>
             <div className="flex items-center justify-end gap-1 text-[#22c55e]">
@@ -70,34 +85,70 @@ export function DashboardPage({ data, onToggleStatus, onNavigate }: DashboardPag
           </div>
         </div>
 
-        {/* KPI Cards */}
+        {/* KPI Cards with glassmorphism */}
         <div className="grid grid-cols-2 gap-3 mt-4 relative z-10">
-          <div id="ordersTodayCard" className="bg-card border border-border rounded-xl p-3 shadow-sm transition-transform duration-200 active:scale-95">
-            <p className="text-xs text-muted-foreground">Orders Today</p>
+          <div 
+            id="ordersTodayCard" 
+            className="rounded-xl p-3 shadow-sm transition-transform duration-200 active:scale-95"
+            style={{
+              background: "rgba(255, 255, 255, 0.15)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              border: "1px solid rgba(255, 255, 255, 0.25)",
+            }}
+          >
+            <p className="text-xs text-foreground/70">Orders Today</p>
             <p className="text-2xl font-bold text-primary mt-1">{data.ordersToday}</p>
-            <p className="text-[10px] text-muted-foreground mt-0.5">
+            <p className="text-[10px] text-foreground/60 mt-0.5">
               {data.completedOrders} Completed / {data.pendingOrders} Pending
             </p>
           </div>
-          <div id="pendingOrdersCard" className="bg-card border border-border rounded-xl p-3 shadow-sm transition-transform duration-200 active:scale-95">
-            <p className="text-xs text-muted-foreground">Pending Orders</p>
+          <div 
+            id="pendingOrdersCard" 
+            className="rounded-xl p-3 shadow-sm transition-transform duration-200 active:scale-95"
+            style={{
+              background: "rgba(255, 255, 255, 0.15)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              border: "1px solid rgba(255, 255, 255, 0.25)",
+            }}
+          >
+            <p className="text-xs text-foreground/70">Pending Orders</p>
             <p className="text-2xl font-bold text-[#f97316] mt-1">{data.pendingOrders}</p>
-            <p className="text-[10px] text-muted-foreground mt-0.5">Action Needed</p>
+            <p className="text-[10px] text-foreground/60 mt-0.5">Action Needed</p>
           </div>
-          <div id="totalRevenueCard" className="bg-card border border-border rounded-xl p-3 shadow-sm transition-transform duration-200 active:scale-95">
-            <p className="text-xs text-muted-foreground">Total Revenue</p>
+          <div 
+            id="totalRevenueCard" 
+            className="rounded-xl p-3 shadow-sm transition-transform duration-200 active:scale-95"
+            style={{
+              background: "rgba(255, 255, 255, 0.15)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              border: "1px solid rgba(255, 255, 255, 0.25)",
+            }}
+          >
+            <p className="text-xs text-foreground/70">Total Revenue</p>
             <p className="text-xl font-bold text-[#22c55e] mt-1">
               ZMW {data.weeklyRevenue.toLocaleString("en-US", { minimumFractionDigits: 2 })}
             </p>
-            <p className="text-[10px] text-muted-foreground mt-0.5">This Week</p>
+            <p className="text-[10px] text-foreground/60 mt-0.5">This Week</p>
           </div>
-          <div id="customerRatingCard" className="bg-card border border-border rounded-xl p-3 shadow-sm transition-transform duration-200 active:scale-95">
-            <p className="text-xs text-muted-foreground">Customer Rating</p>
+          <div 
+            id="customerRatingCard" 
+            className="rounded-xl p-3 shadow-sm transition-transform duration-200 active:scale-95"
+            style={{
+              background: "rgba(255, 255, 255, 0.15)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              border: "1px solid rgba(255, 255, 255, 0.25)",
+            }}
+          >
+            <p className="text-xs text-foreground/70">Customer Rating</p>
             <div className="flex items-center gap-1 mt-1">
-              <span className="text-2xl font-bold text-card-foreground">{data.customerRating}</span>
+              <span className="text-2xl font-bold text-foreground">{data.customerRating}</span>
               <Star className="w-5 h-5 fill-[#eab308] text-[#eab308]" />
             </div>
-            <p className="text-[10px] text-muted-foreground mt-0.5">{data.totalReviews} Reviews</p>
+            <p className="text-[10px] text-foreground/60 mt-0.5">{data.totalReviews} Reviews</p>
           </div>
         </div>
 
@@ -116,11 +167,17 @@ export function DashboardPage({ data, onToggleStatus, onNavigate }: DashboardPag
 
       {/* Scrollable Recent Orders */}
       <div id="recentOrdersList" className="flex-1 overflow-y-auto px-4 pb-2 scrollbar-hide">
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 pt-2">
           {recentOrders.map((order) => (
             <div
               key={order.id}
-              className="bg-card border border-border rounded-xl p-3 flex items-center gap-3 shadow-sm transition-all duration-200 active:scale-[0.98]"
+              className="rounded-xl p-3 flex items-center gap-3 shadow-sm transition-all duration-200 active:scale-[0.98]"
+              style={{
+                background: "rgba(255, 255, 255, 0.15)",
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)",
+                border: "1px solid rgba(255, 255, 255, 0.25)",
+              }}
             >
               <img
                 src={order.image}
@@ -128,14 +185,14 @@ export function DashboardPage({ data, onToggleStatus, onNavigate }: DashboardPag
                 className="w-12 h-12 rounded-lg object-cover shrink-0"
               />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-card-foreground">{order.id}</p>
-                <p className="text-xs text-muted-foreground">{order.customerName}</p>
+                <p className="text-sm font-semibold text-foreground">{order.id}</p>
+                <p className="text-xs text-foreground/70">{order.customerName}</p>
               </div>
               <div className="text-right shrink-0">
-                <p className="text-sm font-bold text-card-foreground">
+                <p className="text-sm font-bold text-foreground">
                   ZMW {order.price.toFixed(2)}
                 </p>
-                <p className="text-xs text-muted-foreground">{order.time}</p>
+                <p className="text-xs text-foreground/70">{order.time}</p>
               </div>
               <StatusBadge status={order.status} />
             </div>

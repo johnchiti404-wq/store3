@@ -19,7 +19,7 @@ export function WelcomePage({ onSignIn, onSignUp }: WelcomePageProps) {
       />
 
       {/* Content Container */}
-      <div className="relative z-10 min-h-dvh flex items-center justify-center p-4">
+      <div className="relative z-20 min-h-dvh flex items-center justify-center p-4">
         {/* Glass Card - warm tone with subtle blur */}
         <div 
           className="w-full max-w-sm rounded-3xl p-8 shadow-2xl"

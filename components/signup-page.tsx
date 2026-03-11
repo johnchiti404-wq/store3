@@ -207,7 +207,7 @@ export function SignupPage({ onSignupSuccess, onSignIn }: SignupPageProps) {
       />
 
       {/* Content Container */}
-      <div className="relative z-10 min-h-dvh flex items-center justify-center p-4">
+      <div className="relative z-20 min-h-dvh flex items-center justify-center p-4">
         {/* Glass Card - subtle blur to show water droplets */}
         <div
           className="w-full max-w-sm rounded-3xl p-6 shadow-2xl"

@@ -8,6 +8,7 @@ import { WelcomePage } from "@/components/welcome-page"
 import { LoginPage } from "@/components/login-page"
 import { SignupPage } from "@/components/signup-page"
 import { DashboardPage } from "@/components/dashboard-page"
+import { WaterDroplets } from "@/components/water-droplets"
 import { OrdersPage } from "@/components/orders-page"
 import { NotificationsPage } from "@/components/notifications-page"
 import { SettingsPage } from "@/components/settings-page"
@@ -288,35 +289,46 @@ export default function MerchantApp() {
   if (!isAuthenticated) {
     if (authPage === "welcome") {
       return (
-        <WelcomePage 
-          onSignIn={() => setAuthPage("login")} 
-          onSignUp={() => setAuthPage("signup")} 
-        />
+        <>
+          <WaterDroplets />
+          <WelcomePage 
+            onSignIn={() => setAuthPage("login")} 
+            onSignUp={() => setAuthPage("signup")} 
+          />
+        </>
       )
     }
     
     if (authPage === "login") {
       return (
-        <LoginPage 
-          onLoginSuccess={handleLoginSuccess}
-          onSignUp={() => setAuthPage("signup")}
-        />
+        <>
+          <WaterDroplets />
+          <LoginPage 
+            onLoginSuccess={handleLoginSuccess}
+            onSignUp={() => setAuthPage("signup")}
+          />
+        </>
       )
     }
     
     if (authPage === "signup") {
       return (
-        <SignupPage 
-          onSignupSuccess={handleSignupSuccess}
-          onSignIn={() => setAuthPage("login")}
-        />
+        <>
+          <WaterDroplets />
+          <SignupPage 
+            onSignupSuccess={handleSignupSuccess}
+            onSignIn={() => setAuthPage("login")}
+          />
+        </>
       )
     }
   }
 
   // Show main dashboard app
   return (
-    <div className="flex flex-col h-dvh w-full max-w-[1200px] mx-auto bg-background">
+    <>
+      <WaterDroplets />
+      <div className="relative z-10 flex flex-col h-dvh w-full max-w-[1200px] mx-auto bg-transparent">
       {/* Page Content */}
       <div className="flex-1 overflow-hidden relative">
         <div
@@ -414,5 +426,6 @@ export default function MerchantApp() {
         }
       `}</style>
     </div>
+    </>
   )
 }

@@ -67,7 +67,7 @@ export function LoginPage({ onLoginSuccess, onSignUp }: LoginPageProps) {
       <div className="absolute inset-0 z-[1] bg-black/30" />
 
       {/* Content Container */}
-      <div className="relative z-10 min-h-dvh flex items-center justify-center p-4">
+      <div className="relative z-20 min-h-dvh flex items-center justify-center p-4">
         {/* Glass Card - dark blue with subtle blur */}
         <div 
           className="w-full max-w-sm rounded-3xl p-6 shadow-2xl"
